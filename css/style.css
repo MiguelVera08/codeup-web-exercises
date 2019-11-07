@@ -7,4 +7,51 @@ comment
 .fancy-header {
     color: purple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
 }
+
+h1, h2 {
+    color: crimson;
+    text-decoration: underline;
+}
+
+body {
+    background-color: darkorange;
+    background-image: url("../img/particle.png");
+    background-repeat: repeat-x;
+    background-position: top;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+ul {
+    list-style: square;
+}
+
+td, tr {
+    padding: 10px;
+    text-decoration: underline;
+}
+
+th {
+    font-weight: bold;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:purple;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:darkred;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:yellow;
+}
+
