@@ -3,6 +3,7 @@ multi
 line
 comment
 */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 .fancy-header {
     color: purple; /* single line comment */
@@ -26,13 +27,12 @@ ul {
     list-style: square;
 }
 
-td, tr {
-    padding: 10px;
-    text-decoration: underline;
+table, th, td, tr {
+    padding: 20px;
+    font-size: large;
 }
-
 th {
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* unvisited link (:link) */
@@ -47,11 +47,10 @@ a:visited {
 
 /* mouse hover over link (:hover) */
 a:hover {
-    color:darkred;
+    color:ghostwhite;
 }
 
 /* active/selected link (:active) */
 a:active {
     color:yellow;
 }
-
