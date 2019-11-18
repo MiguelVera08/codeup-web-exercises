@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Layout 1</title>
+</head>
+
+<style>
+    body {
+        display: grid;
+        grid-template-columns: 80px 1fr 70px;
+        grid-template-rows: 20% 1fr 15%;
+        height: 100vh;
+        margin: 0;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+
+    }
+
+    body {
+        grid-template-areas:
+            "header header header"
+            "nav article ads"
+            "nav footer footer";
+    }
+
+    .pageheader {
+        grid-area: header;
+        background: #fbd84a;
+        padding: 1.2em;
+    }
+
+    .mainArticle {
+        grid-area: article;
+        background: #fbd84a;
+        padding: 1.2em;
+    }
+
+    .mainNav {
+        grid-area: nav;
+        background: #fbd84a;
+        padding: 1.2em;
+    }
+
+    .siteAds {
+        grid-area: ads;
+        background: #fbd84a;
+        padding: 1.2em;
+    }
+
+    .pagefooter {
+        grid-area: footer;
+        background: #fbd84a;
+        padding: 1.2em;
+    }
+
+</style>
+
+<body>
+        <header class="pageheader">Header</header>
+        <article class="mainArticle">Article</article>
+        <nav class="mainNav">Nav</nav>
+        <ads class="siteAds">Ads</ads>
+        <footer class="pagefooter">Footer</footer>
+</body>
+</html>
