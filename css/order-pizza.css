@@ -1,0 +1,26 @@
+
+.btn {
+    color: black;
+}
+.fa-user {
+    color: #6e777f;
+}
+#main-container{
+    background-image: url("../img/pizza.png");
+    background-size: cover;
+}
+
+.jumbotron {
+    text-align: center;
+
+}
+
+.jumbotron h1 {
+    background-color: #ffffffab;
+}
+
+.fa-shopping-cart {
+    color: white;
+}
+
+
