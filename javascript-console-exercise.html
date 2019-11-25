@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console Exercises</title>
+</head>
+<body>
+    <script>
+        /* Exercise 3 */
+        /* Part 1 */
+        var mermaid = 3 * 3;
+        var brotherBear = 5 * 3;
+        var hercules = 1 * 3;
+        var totalRentDays = mermaid + brotherBear + hercules;
+
+        console.log(totalRentDays);
+
+        /*Part 2*/
+        var googlePay = 400 * 6;
+        var amazonPay = 380 * 4;
+        var facebookPay = 350 * 10;
+        var weekPay = amazonPay + googlePay + facebookPay;
+
+        console.log(weekPay);
+
+        /*Part 3*/
+        var classNotFull = false;
+        var classSize = 125;
+        var currClassSize = 108;
+        var enrolled = (currClassSize < classSize) && !classNotFull;
+
+        console.log(enrolled);
+
+        /*Part 4*/
+        var items = 6;
+        var offerValid = true;
+        var premiumMembers = true;
+        var product = (items > 2) && offerValid === true;
+        var productOffer = premiumMembers === true && offerValid === true;
+
+        console.log(product);
+        console.log(productOffer);
+
+
+
+        /* Exercise 4 */
+
+        var username = 'codeup';
+        var password = 'notastrongpassword';
+
+        var long = password.length >= 5;
+        var match = !password.includes(username);
+        var user = username.length <= 20;
+        var noWhitespace = username.trim()  === username && password.trim() === password;
+
+        console.log(long);
+        console.log(match);
+        console.log(user);
+        console.log(noWhitespace);
+
+    </script>
+</body>
+</html>
