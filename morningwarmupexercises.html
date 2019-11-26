@@ -85,12 +85,25 @@
         //
         // console.log(put2(["dog","cat","bird","fish"]))
         // console.log(put2([1,7,20,45]))
-        function highTen(num) {
-            return num > 10;
-        }
+        // function highTen(num) {
+        //     return num > 10;
+        // }
+        //
+        // console.log(highTen(11))
+        // console.log(highTen(8))
+        function youMayEnter(num) {
 
-        console.log(highTen(11))
-        console.log(highTen(8))
+            if (num >= 13) {
+                return "You may enter!";
+            } else {
+                return "Sorry, you need a parent or a guardian to enter.";
+            }
+
+        }
+        console.log(youMayEnter(14));
+        console.log(youMayEnter(3));
+
+
     </script>
 </body>
 </html>
