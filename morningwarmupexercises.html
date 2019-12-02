@@ -107,12 +107,23 @@
 
         function seeYouLater(name) {
 
-            if (name === "alligator") {
-                return "See you later alligator!";
-            }else if ( name === "crocodile") {
-                return "After a while crocodile!";
-            }else {
-                return "So long!";
+            // if (name === "alligator") {
+            //     return "See you later alligator!";
+            // }else if ( name === "crocodile") {
+            //     return "After a while crocodile!";
+            // }else {
+            //     return "So long!";
+            // }
+
+            switch(name) {
+                case "alligator":
+                    return "See you later alligator!";
+
+                case "crocodile":
+                    return "After a while crocodile!";
+
+                default:
+                    return "So long!";
             }
         }
         console.log(seeYouLater("alligator"))
