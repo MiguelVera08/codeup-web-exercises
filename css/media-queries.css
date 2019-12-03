@@ -1,0 +1,129 @@
+nav ul {
+    list-style: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+}
+body {
+    font-family: sans-serif;
+    display: grid;
+    grid-template-rows: 20% 40% 30% 20% 5%;
+    grid-template-columns: 65% 35%;
+}
+.alert-info {
+    display: none;
+}
+h1 {
+    text-align: left;
+    grid-area: 1 / 2 / 1 / 1;
+}
+
+nav ul {
+    grid-area: 2 / 2 / 1 / 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-img {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    width: auto;
+    height: auto;
+
+}
+
+#main {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.sub-section {
+    grid-area: 3 / 2 / 4 / 3;
+}
+footer {
+    grid-area: 4 / 1 / 5 / 3;
+}
+
+
+@media screen and (max-width: 365px) {
+    img {
+        width: 100%;
+
+    }
+    body {
+        font-family: sans-serif;
+        display: grid;
+        grid-template-areas:
+        "alert"
+        "title"
+        "nav"
+        "image"
+        "section-1"
+        "section-2"
+        "foot";
+        grid-template-rows: 7% 8% 50% 40% 20% 10%;
+        grid-template-columns: 100%;
+    }
+    .alert-info a {
+        text-decoration: none;
+    }
+    .alert-info {
+        background-color: #ccffff;
+        grid-area: alert;
+        align-items: center;
+        text-align: center;
+        padding: 1em;
+        margin: .2em;
+        border: .1em solid #cccccc;
+
+    }
+    h1 {
+        grid-area: title;
+        text-align: center;
+        font-size: 3em;
+        margin: .2em;
+
+    }
+    nav ul {
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+
+    }
+    .header-img {
+        grid-area: image;
+    }
+    .main {
+        grid-area: section-1;
+    }
+    .sub-section {
+        grid-area: section-2;
+    }
+    footer {
+        grid-area: foot;
+    }
+    li {
+        background-color: #cccccc;
+        padding: 1em ;
+        margin: .4em;
+        width: 100%;
+        text-align: center;
+    }
+    #main {
+        margin-top: 1em;
+        margin-bottom: .5em;
+    }
+    .sub-section {
+        font-style: italic;
+    }
+}
+
+
