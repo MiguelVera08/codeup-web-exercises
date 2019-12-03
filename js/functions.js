@@ -35,8 +35,9 @@ const helloMessage = sayHello("Miguel");
  * console.
  */
 
-var myName = sayHello("Miguel");
+var myName = "Miguel";
 
+console.log(sayHello(myName));
 
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -82,9 +83,9 @@ function calculateTip(tip, total){
     return tip * total;
 }
 
-// console.log(calculateTip(0.20, 20));
-// console.log(calculateTip(0.25, 25.50));
-// console.log(calculateTip(0.15, 33.42));
+// console.log(calculateTip(0.20, 20)); // returns 4
+// console.log(calculateTip(0.25, 25.50)); // returns 6.375
+// console.log(calculateTip(0.15, 33.42)); // returns 5.013
 
 /**
  * TODO:
@@ -92,15 +93,17 @@ function calculateTip(tip, total){
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-// var billTotal = prompt("Enter the bill total: ");
-// var billTip = prompt('Enter the tip percentage you want to tip: ');
-//
-// var bTotal = parseFloat(billTotal);
-// var bTip = parseFloat(billTip);
-//
-// // calculateTip(bTotal, bTip);
-//
-// alert("Dollar amount you should tip $" + calculateTip(bTotal, bTip));
+var billTotal = prompt("Enter the bill total: ");
+var billTip = prompt('Enter the tip percentage you want to tip: ');
+
+var bTotal = parseFloat(billTotal);
+var bTip = parseFloat(billTip);
+
+var amountToTip =calculateTip(bTotal, bTip);
+
+alert("Dollar amount you should tip $" + amountToTip);
+
+
 
 /**
  * TODO:
@@ -111,7 +114,7 @@ function calculateTip(tip, total){
  *
  * Example:
  * > var originalPrice = 100;
- * > var dicountPercent = .2; // 20%
+ * > var discountPercent = .2; // 20%
  * > applyDiscount(originalPrice, discountPercent) // 80
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
