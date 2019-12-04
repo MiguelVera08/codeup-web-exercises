@@ -1,5 +1,5 @@
 "use strict";
-console.log('Hello from conditionals.js');
+// console.log('Hello from conditionals.js');
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -18,7 +18,7 @@ console.log('Hello from conditionals.js');
 // var choice = confirm("Would you like to enter a number? ");
 //
 // if(choice === true){
-//     var number = parseInt(prompt("Please enter a number: "));
+//     var number = parseFloat(prompt("Please enter a number: "));
 //     if(isNaN(number)){
 //         alert("You did not enter a number!");
 //     }else{
@@ -31,15 +31,56 @@ console.log('Hello from conditionals.js');
 //
 //         alert("Here is your number plus 100: " + oneHundred);
 //         if(number < 0){
-//             alert(number + " Your number is negative.")
+//             alert(number + " is negative.")
 //         }else{
-//             alert(number + " Your number is positive.")
+//             alert(number + " is positive.")
 //         }
 //     }
 // } else{
 //     alert("Goodbye, have a nice day.");
 // }
 
+
+function askNumber(num){
+
+    var choice = confirm("Would you like to enter a number? ")
+
+    if(choice === true) {
+        var number = parseFloat(prompt("Please enter a number: "));
+
+        if (isNaN(number)) {
+            console.log("You did not enter a number!");
+        } else {
+            console.log(oddOrEven(number));
+            console.log(hundred(number));
+            console.log(posOrNeg(number));
+        }
+    }else{
+        alert("Goodbye, have a nice day.");
+    }
+}
+
+function oddOrEven(number){
+    if(number % 2 === 0){
+        return number + " is even.";
+    }else{
+        return number + " is odd.";
+    }
+}
+
+function hundred(number){
+    return "Here is your number plus 100: " + (number + 100);
+}
+
+function posOrNeg(number){
+    if(number < 0){
+        return number + " is negative.";
+    }else{
+        return number + " is positive.";
+    }
+}
+
+askNumber();
 /* ########################################################################## */
 /**
  * TODO:
@@ -104,37 +145,37 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-function analyzeColorSwitch(color){
-
-    switch (color) {
-        case "blue":
-            return color + " is the color of the sky";
-            break;
-        case "red":
-            return "Strawberries are " + color;
-            break;
-        case "orange":
-            return "Carrots are " + color;
-            break;
-        case "yellow":
-            return "Bananas are " + color;
-            break;
-        case "indigo":
-            return "Some eggplants are " + color;
-            break;
-        case "violet":
-            return "Plums are " + color;
-            break;
-        case "green":
-            return "Pine-trees are " + color;
-            break;
-        default:
-            return "I don't know anything about " + color;
-            break;
-    }
-}
-
-console.log(analyzeColorSwitch(randomColor));
+// function analyzeColorSwitch(color){
+//
+//     switch (color) {
+//         case "blue":
+//             return color + " is the color of the sky";
+//             break;
+//         case "red":
+//             return "Strawberries are " + color;
+//             break;
+//         case "orange":
+//             return "Carrots are " + color;
+//             break;
+//         case "yellow":
+//             return "Bananas are " + color;
+//             break;
+//         case "indigo":
+//             return "Some eggplants are " + color;
+//             break;
+//         case "violet":
+//             return "Plums are " + color;
+//             break;
+//         case "green":
+//             return "Pine-trees are " + color;
+//             break;
+//         default:
+//             return "I don't know anything about " + color;
+//             break;
+//     }
+// }
+//
+// console.log(analyzeColorSwitch(randomColor));
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -166,21 +207,22 @@ console.log(analyzeColorSwitch(randomColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-function calculateTotal(luckyNumber, total){
-    if(luckyNumber === 0){
-        return total - total;
-    }else if(luckyNumber === 1){
-        return total * 0.10;
-    }else if(luckyNumber === 2){
-        return total * 0.25;
-    }else if(luckyNumber === 3){
-        return total * 0.35;
-    }else if(luckyNumber === 4) {
-        return total * 0.50;
-    }else{
-        return total;
-    }
-}
+
+// function calculateTotal(luckyNumber, total){
+//     if(luckyNumber === 0){
+//         return total - total;
+//     }else if(luckyNumber === 1){
+//         return total * 0.10;
+//     }else if(luckyNumber === 2){
+//         return total * 0.25;
+//     }else if(luckyNumber === 3){
+//         return total * 0.35;
+//     }else if(luckyNumber === 4) {
+//         return total * 0.50;
+//     }else{
+//         return total;
+//     }
+// }
 
 // console.log(calculateTotal(0, 100));
 // console.log(calculateTotal(4, 100));
@@ -194,10 +236,10 @@ function calculateTotal(luckyNumber, total){
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-
-var totalPrice = parseFloat(prompt("Enter the total bill: "));
-
-alert("Your lucky number is: " + luckyNumber);
-alert("Total before the applied discount is: $" + totalPrice);
-alert("The total after the applied discount is: $" + (totalPrice - calculateTotal(luckyNumber, totalPrice)));
+// var luckyNumber = Math.floor(Math.random() * 6);
+//
+// var totalPrice = parseFloat(prompt("Enter the total bill: "));
+//
+// alert("Your lucky number is: " + luckyNumber);
+// alert("Total before the applied discount is: $" + totalPrice.toFixed(2));
+// alert("The total after the applied discount is: $" + (totalPrice - calculateTotal(luckyNumber, totalPrice).toFixed(2)));
