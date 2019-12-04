@@ -347,16 +347,20 @@ console.log("hello from conditionals lec.js!");
 
 // var weather = "sunny";
 // var weatherMessage;
-
+//
 // if(weather === "rainy"){
 //    weatherMessage = "It's raining!";
 // } else {
 //     weatherMessage = "Have a nice day!";
 // }
-
+// console.log(weatherMessage);
 //WRITE YOUR TERNARY STATEMENT HERE!
 
-
+// var weather = "sunny";
+//
+// var weatherMessage = (weather === "rainy") ? "It's raining!" : "Have a nice day!";
+//
+// console.log(weatherMessage);
 
 // =============== SWITCH STATEMENT ================
 //TODO Together:
@@ -378,9 +382,72 @@ console.log("hello from conditionals lec.js!");
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
 
+// var weather = "sunny";
+//
+// switch(weather) {
+//     case "rainy":
+//         alert("It's raining");
+//         break;
+//     case "sunny":
+//         alert("It's sunny outside.");
+//         break;
+//     case "snow":
+//         alert("It's snowing.");
+//         break;
+//     default:
+//         alert("I dont know whats going on with the weather.");
+//         break;
+// }
+
+
+// function checkWeather(weather) {
+//     var weatherMessage;
+//
+//     switch (weather) {
+//         case "rainy":
+//             weatherMessage = "It's raining";
+//             break;
+//         case "sunny":
+//             weatherMessage = "It's sunny outside.";
+//             break;
+//         case "snow":
+//             weatherMessage = "It's snowing.";
+//             break;
+//         default:
+//             weatherMessage = "I dont know whats going on with the weather.";
+//             break;
+//     }
+//     return weatherMessage;
+// }
+//
+// console.log(checkWeather("rainy"));
+// console.log(checkWeather("sunny"));
+// console.log(checkWeather("snow"));
+// console.log(checkWeather("foggy"));
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
+
+function trafficLight(light){
+    switch(light) {
+        case "red":
+            return "stop";
+            break;
+        case "yellow":
+            return "slow down";
+            break;
+        case "green":
+            return "keep going";
+            break;
+        default:
+            return "Proceed with caution";
+    }
+}
+
+console.log(trafficLight("red"));
+console.log(trafficLight("yellow"));
+console.log(trafficLight("green"));
+console.log(trafficLight("blinking"));
 
 
 // ================ REVERSE ENGINEERING =================
