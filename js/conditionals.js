@@ -41,46 +41,46 @@
 // }
 
 
-function askNumber(num){
+// function askNumber(num){
+//
+//     var choice = confirm("Would you like to enter a number? ")
+//
+//     if(choice === true) {
+//         var number = parseFloat(prompt("Please enter a number: "));
+//
+//         if (isNaN(number)) {
+//             console.log("You did not enter a number!");
+//         } else {
+//             console.log(oddOrEven(number));
+//             console.log(hundred(number));
+//             console.log(posOrNeg(number));
+//         }
+//     }else{
+//         alert("Goodbye, have a nice day.");
+//     }
+// }
+//
+// function oddOrEven(number){
+//     if(number % 2 === 0){
+//         return number + " is even.";
+//     }else{
+//         return number + " is odd.";
+//     }
+// }
+//
+// function hundred(number){
+//     return "Here is your number plus 100: " + (number + 100);
+// }
+//
+// function posOrNeg(number){
+//     if(number < 0){
+//         return number + " is negative.";
+//     }else{
+//         return number + " is positive.";
+//     }
+// }
 
-    var choice = confirm("Would you like to enter a number? ")
-
-    if(choice === true) {
-        var number = parseFloat(prompt("Please enter a number: "));
-
-        if (isNaN(number)) {
-            console.log("You did not enter a number!");
-        } else {
-            console.log(oddOrEven(number));
-            console.log(hundred(number));
-            console.log(posOrNeg(number));
-        }
-    }else{
-        alert("Goodbye, have a nice day.");
-    }
-}
-
-function oddOrEven(number){
-    if(number % 2 === 0){
-        return number + " is even.";
-    }else{
-        return number + " is odd.";
-    }
-}
-
-function hundred(number){
-    return "Here is your number plus 100: " + (number + 100);
-}
-
-function posOrNeg(number){
-    if(number < 0){
-        return number + " is negative.";
-    }else{
-        return number + " is positive.";
-    }
-}
-
-askNumber();
+// askNumber();
 /* ########################################################################## */
 /**
  * TODO:
@@ -208,21 +208,21 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-// function calculateTotal(luckyNumber, total){
-//     if(luckyNumber === 0){
-//         return total - total;
-//     }else if(luckyNumber === 1){
-//         return total * 0.10;
-//     }else if(luckyNumber === 2){
-//         return total * 0.25;
-//     }else if(luckyNumber === 3){
-//         return total * 0.35;
-//     }else if(luckyNumber === 4) {
-//         return total * 0.50;
-//     }else{
-//         return total;
-//     }
-// }
+function calculateTotal(luckyNumber, total){
+    if(luckyNumber === 0){
+        return total;
+    }else if(luckyNumber === 1){
+        return total - (total * 0.10);
+    }else if(luckyNumber === 2){
+        return total - (total * 0.25);
+    }else if(luckyNumber === 3){
+        return total - (total * 0.35);
+    }else if(luckyNumber === 4) {
+        return total - (total * 0.50);
+    }else{
+        return total - total;
+    }
+}
 
 // console.log(calculateTotal(0, 100));
 // console.log(calculateTotal(4, 100));
@@ -236,10 +236,10 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
-//
-// var totalPrice = parseFloat(prompt("Enter the total bill: "));
-//
-// alert("Your lucky number is: " + luckyNumber);
-// alert("Total before the applied discount is: $" + totalPrice.toFixed(2));
-// alert("The total after the applied discount is: $" + (totalPrice - calculateTotal(luckyNumber, totalPrice).toFixed(2)));
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var totalPrice = parseFloat(prompt("Enter the total bill: "));
+
+alert("Your lucky number is: " + luckyNumber);
+alert("Total before the applied discount is: $" + totalPrice.toFixed(2));
+alert("The total after the applied discount is: $" + calculateTotal(luckyNumber, totalPrice).toFixed(2));
