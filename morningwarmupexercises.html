@@ -130,14 +130,28 @@
         // console.log(seeYouLater("crocodile"))
         // console.log(seeYouLater("bird"))
 
-        function functionA(callbackFunction){
-            callbackFunction();
+        // function functionA(callbackFunction){
+        //     callbackFunction();
+        // }
+        // functionA(function() {
+        //     alert("It works!");
+        //
+        // });
+        function contains(array, input){
+
+            // return array.includes(input);
+
+            for (var i = 0;i<array.length;i++){
+                if(array[i] === input) return true;
+            }
+            return false;
         }
-        functionA(function() {
-            alert("It works!");
 
-        });
 
+
+        console.log(contains([1,2,3,4,5], 4));
+        console.log(contains([1,2,3,4,5], 10));
+        console.log(contains(["Banana", "Orange", "Apple", "Mango"], "Mango"));
 
     </script>
 </body>
