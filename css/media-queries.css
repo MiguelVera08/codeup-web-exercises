@@ -1,129 +1,169 @@
-nav ul {
-    list-style: none;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-img {
+img{
     width: 100%;
-}
-body {
-    font-family: sans-serif;
-    display: grid;
-    grid-template-rows: 20% 40% 30% 20% 5%;
-    grid-template-columns: 65% 35%;
-}
-.alert-info {
-    display: none;
-}
-h1 {
-    text-align: left;
-    grid-area: 1 / 2 / 1 / 1;
+    height: 100%;
 }
 
-nav ul {
-    grid-area: 2 / 2 / 1 / 1;
-    display: flex;
-    flex-direction: row;
-}
+@media screen and (min-width: 401px) {
 
-.header-img {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    width: auto;
-    height: auto;
-
-}
-
-#main {
-    grid-area: 3 / 1 / 4 / 2;
-}
-
-.sub-section {
-    grid-area: 3 / 2 / 4 / 3;
-}
-footer {
-    grid-area: 4 / 1 / 5 / 3;
-}
-
-
-@media screen and (max-width: 365px) {
-    img {
-        width: 100%;
-
-    }
-    body {
-        font-family: sans-serif;
-        display: grid;
-        grid-template-areas:
-        "alert"
-        "title"
-        "nav"
-        "image"
-        "section-1"
-        "section-2"
-        "foot";
-        grid-template-rows: 7% 8% 50% 40% 20% 10%;
-        grid-template-columns: 100%;
-    }
-    .alert-info a {
-        text-decoration: none;
-    }
     .alert-info {
-        background-color: #ccffff;
-        grid-area: alert;
-        align-items: center;
+        display: none;
+    }
+
+    body {
+        width: 900px;
+        height: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 30% 30% 40%;
+        grid-template-areas:
+                "h1 nav nav"
+                "header-img header-img header-img"
+                "header-img header-img header-img"
+                "main main sub-section"
+                "main main sub-section"
+                "footer footer footer";
+    }
+
+    h1 {
+        grid-area: h1;
+        text-align: left;
+        padding-left: .6em;
+    }
+
+    nav {
+        grid-area: nav;
+
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        float: right;
+        position: relative;
+
+    }
+
+    .nav-links li {
+        padding: 1em .5em;
+        background-color: white;
+    }
+
+    .header-img {
+        grid-area: header-img;
+        height: 385px;
+        width: 890px;
+    }
+
+    section {
+        margin-bottom: 15em;
+    }
+
+    #main {
+        grid-area: main;
+    }
+
+    .sub-section {
+        grid-area: sub-section;
+        font-style: italic;
+        padding: 0;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    footer {
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        font-size: medium;
+    }
+
+    footer p {
+        padding-right: 16em;
+    }
+
+    #social-media-links {
+        margin-left: auto;
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+
+    body {
+        font-family: 'PT Sans', sans-serif;
+    }
+
+    .alert-info {
+        background: rgb(214 254 254);
+        border: grey 2px solid;
         text-align: center;
         padding: 1em;
-        margin: .2em;
-        border: .1em solid #cccccc;
-
+        margin: 1em auto;
     }
+
+    .alert-info a {
+        color: dimgrey;
+        text-decoration: none;
+        font-size: 1.25em;
+    }
+
+    .alert-info a:visited {
+        color: dimgrey;
+        text-decoration: none;
+    }
+
     h1 {
-        grid-area: title;
         text-align: center;
-        font-size: 3em;
-        margin: .2em;
+    }
 
+    ul {
+        list-style: none;
+        padding: 0;
     }
-    nav ul {
-        grid-area: nav;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
 
-    }
-    .header-img {
-        grid-area: image;
-    }
-    .main {
-        grid-area: section-1;
-    }
-    .sub-section {
-        grid-area: section-2;
-    }
-    footer {
-        grid-area: foot;
-    }
     li {
-        background-color: #cccccc;
-        padding: 1em ;
-        margin: .4em;
-        width: 100%;
         text-align: center;
+        background: rgb(204 204 204);
+        margin: .5em auto;
+        padding: .75em;
     }
+
+    .header-img {
+
+        height: 100%;
+        /*margin: 0 0 10px 0;*/
+    }
+
+
     #main {
-        margin-top: 1em;
-        margin-bottom: .5em;
+        margin: 0;
     }
-    .sub-section {
+
+    section.sub-section {
         font-style: italic;
+        font-size: .85em;
+        margin: 0;
+    }
+
+    footer p {
+        font-size: .35em;
+        position: relative;
+        top: 40px;
+    }
+
+    #social-media-links {
+        float: right;
+    }
+
+    .fb {
+        float: left;
+        display: block;
+        /*width: 100%;*/
     }
 }
+
 
 
