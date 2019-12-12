@@ -204,8 +204,18 @@
 
         console.log("Book # " + (i + 1));
         console.log("Title: " + books[i].title);
-        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName)
+        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+        console.log("---");
     }
+
+    books.forEach(function (book, i) {
+        console.log("Book # " + (i + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
+    });
+
+
 
     /**
      * Bonus:
@@ -218,16 +228,24 @@
      *   `showBookInfo` function.
      */
 
-    function createBook(title, author) {
-        this.title = title;
-        this.author = author;
-        this.getDetails = function () {
-            return this.title + " written by " + this.author;
-        }
-    }
-    var book = new createBook("Moby Dick", "Herman Miller");
+    var createBook = function(title, authorFirstName, authorLastName) {
+            var book = {};
+            book.title = title;
+            book.author = {};
+            book.author.firstName = authorFirstName;
+            book.author.lastName = authorLastName;
+            return book;
+    };
+    books.push(createBook("leviathan", "Scott", "Westfield"))
 
-    console.log(book.getDetails());
+    var showBookInfo = function(book, i){
+        console.log("Book # " + (i + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
+    };
+
+    books.forEach(showBookInfo);
 
 })();
 
