@@ -10,13 +10,19 @@
         .greenText {
             color:green;
         }
+        .purple{
+            color:purple;
+        }
+        .cyan{
+            color:cyan;
+        }
     </style>
 </head>
 <body>
     <h1 id="header">Happy Holidays</h1>
     <h3>Wish List</h3>
     <ul id="wishlist"></ul>
-    <a id="codeup" href="http://codeup.com">codeup</a>
+    <button id="button">Click Me!</button><a id="codeup" href="http://codeup.com"> codeup</a>
 <!--    <ul>-->
 <!--        <li>Great Career</li>-->
 <!--        <li class="even">2 Front Teeth</li>-->
@@ -103,7 +109,26 @@
         // for(var i = 0;i<lis.length; i++){
         //     console.log(lis[i]);
         // }
+        var clicks = 0;
+        var buttonClick = function () {
+            clicks++;
+            console.log("button was clicked " + clicks + " times")
 
+        };
+
+
+        var button = document.getElementById("button");
+        button.addEventListener("click",buttonClick);
+        button.addEventListener("mouseover", function () {
+            button.setAttribute("class", "purple")
+        });
+        button.addEventListener("mouseout", function () {
+            button.setAttribute("class", "cyan")
+        });
+
+        setTimeout(function () {
+            button.removeEventListener("click", buttonClick);
+        }, 5000);
 
     </script>
 </body>
