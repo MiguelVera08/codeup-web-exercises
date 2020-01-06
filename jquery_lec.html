@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+</head>
+<body>
+
+<h1>jQuery</h1>
+<h3>New Years Resolution</h3>
+<ul>
+    <li class="odd">Finish CodeUp</li>
+    <li id="important">Lose Weight</li>
+    <li class="odd">Get a job after CodeUP</li>
+    <li>Get a new car</li>
+</ul>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<form name="resForm" action="">
+    <div>
+        <label for="goal">What do you want to do this year?</label>
+        <input id="goal" name="goal" type="text">
+    </div>
+</form>
+<button id="button" class="cyan">Submit</button>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function () {
+            //our jQuery code goes here
+            // alert("Look, we are using jQuery");
+
+        });
+        $("#button").click(function () {
+            alert("You clicked the button.")
+        });
+
+        $('.odd').css('background-color', 'yellow');
+
+        $('#important').css('color', 'Red');
+
+        $('li').css('border', '1px solid black');
+    })();
+</script>
+</body>
+</html>
