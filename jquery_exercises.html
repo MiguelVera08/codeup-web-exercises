@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
 </head>
+<style>
+    .color-h1{
+        background-color: #42f081;
+    }
+</style>
 <body>
 
 <h1 id="codeup">jQuery</h1>
@@ -45,9 +50,30 @@
         // $('li').css('background-color', 'yellow');
         // alert($('h1').html());
 
-        //Multiple Selectors
-        $('li,h1,p').css('background-color', 'orange');
 
+        //Multiple Selectors
+        // $('li,h1,p').css('background-color', 'orange');
+
+
+
+        //Mouse-Events Exercise
+        //Part 1: Change the background color of an h1 element when clicked.
+        $('h1').click(function () {
+            $(this).addClass('color-h1')
+        });
+        //Part 2: Make all paragraphs have a font size of 18px when they are double clicked.
+        $('p').dblclick(function () {
+            $(this).css('font-size', '18px')
+        });
+        //Part 3: Set all li text color to red when the mouse is hovering; reset to black when it is not.
+        $('li').hover(
+            function () {
+                $(this).css('color', 'red')
+            },
+            function () {
+                $(this).css('color', 'black')
+            }
+        );
     })();
 </script>
 </body>
