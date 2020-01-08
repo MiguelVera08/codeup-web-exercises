@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+</head>
+<style>
+    .color-h1{
+        background-color: #42f081;
+    }
+</style>
+<body>
+
+<h1 id="codeup">jQuery</h1>
+
+<div class="section-one">
+    <h3 id="info">Favorite Video Games</h3>
+</div>
+
+<ul>
+    <li class="codeup">Destiny 2</li>
+    <li class="codeup">World of Warcraft</li>
+    <li class="codeup">Diablo 3</li>
+    <li class="codeup">Witcher 3</li>
+    <li>State of Decay 1 and 2</li>
+</ul>
+
+<p id="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut cum cupiditate dicta, dolorum ducimus eligendi ex incidunt, iure numquam quaerat sint. A corporis dolor, illo non provident sed velit.</p>
+
+<script src="js/jquery.js"></script>
+<script>
+    (function () {
+        "use strict";
+        // $(document).ready(function () {
+        //     //our jQuery code goes here
+        //     // alert("Look, we are using jQuery");
+        // });
+
+        //Id Selectors Exercise
+        // var content = $('#info').html();
+        // alert(content);
+
+        //Class Selectors Exercise
+        // $('.codeup').css('border', '1px solid red')
+
+        //Element Selectors
+        // $('li').css('font-size', '20px');
+        // $('h1').css('background-color', 'yellow');
+        // $('p').css('background-color', 'yellow');
+        // $('li').css('background-color', 'yellow');
+        // alert($('h1').html());
+
+
+        //Multiple Selectors
+        // $('li,h1,p').css('background-color', 'orange');
+
+
+
+        //Mouse-Events Exercise
+        //Part 1: Change the background color of an h1 element when clicked.
+        $('h1').click(function () {
+            $(this).addClass('color-h1')
+        });
+        //Part 2: Make all paragraphs have a font size of 18px when they are double clicked.
+        $('p').dblclick(function () {
+            $(this).css('font-size', '18px')
+        });
+        //Part 3: Set all li text color to red when the mouse is hovering; reset to black when it is not.
+        $('li').hover(
+            function () {
+                $(this).css('color', 'red')
+            },
+            function () {
+                $(this).css('color', 'black')
+            }
+        );
+    })();
+</script>
+</body>
+</html>
