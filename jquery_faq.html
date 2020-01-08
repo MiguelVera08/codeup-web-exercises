@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10 FAQS</title>
+    <style>
+        dd {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .invisible{
+            visibility: hidden;
+        }
+        .highlight {
+            background-color: #9bcf3a;
+        }
+    </style>
+</head>
+<body>
+<h1>Yellowstone National Park Faqs</h1>
+
+<dl>
+    <dt>Can I Bring My Pet to Yellowstone?</dt>
+    <dd class="invisible">
+        Pets are prohibited throughout most areas in national parks.
+    </dd>
+
+    <dt>Do Cell Phones Work in Yellowstone? Is There WiFi?</dt>
+    <dd class="invisible">
+        Cell phone service is available in over 50 percent of the park. WiFi is available for purchase at the Mammoth
+        Dining Lounge, Lake Hotel, and Grant Village.
+    </dd>
+
+    <dt>Can I Smoke in Yellowstone? How about marijuana?</dt>
+    <dd class="invisible">
+        Smoking is permitted only inside vehicles and designated areas. It's forbidden in thermal and natural areas.
+        Boom! As for possessing marijuana, it's illegal on Federal land.
+    </dd>
+
+    <dt>Has Anyone Ever Fallen into a Geyser?</dt>
+    <dd class="invisible">
+        Visitors have in the past slipped and fallen into hot springs, or were severely injured with burns from erupting
+        geysers, but it is extremely rare.
+    </dd>
+
+    <dt>How close can I get to wild animals in Yellowstone?</dt>
+    <dd class="invisible">
+        Stay at least 100 yards away from bears and wolves and at least 25 yards away from other large mammals like
+        bison, elk, bighorn sheep, deer, moose and coyotes.
+    </dd>
+
+    <dt>How many people get killed by bears in Yellowstone?</dt>
+    <dd class="invisible">
+        Death from encountering a bear is rare, but they will attack whatever they see as a threat to their cubs, or if
+        you startle them.
+    </dd>
+
+    <dt>Is Yellowstone Going to Blow? Exaggerated Reports of Volatility</dt>
+    <dd class="invisible">
+        As long as there's been a national park seated on a super volcano, there's been erroneous reports of impending
+        doom.
+    </dd>
+
+    <dt>Where is Yellowstone National Park?</dt>
+    <dd class="invisible">
+        Yellowstone National Park is in the northwest region of the United States.
+    </dd>
+
+    <dt>When Is the Best Season to Visit Yellowstone?</dt>
+    <dd class="invisible">
+        There simply is no “best time” to visit Yellowstone. Every season offers something different to those who travel
+        to the world's first national park.
+    </dd>
+
+    <dt>How Can I Avoid the Crowds at Old Faithful?</dt>
+    <dd class="invisible">
+        Every year, Yellowstone draws in nearly three million visitors—most of them eager to see Old Faithful. The busy
+        days of June through September.
+    </dd>
+</dl>
+
+<a href="#" id="toggle">Toggle On and Off</a>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script>
+    "use strict";
+
+    $(document).ready(function() {
+        $('#toggle').click(function (event) {
+            event.preventDefault();
+            $('dd').toggleClass('invisible')
+        });
+    });
+
+    $('dt').click(function() {
+        $(this).addClass('highlight')
+    });
+</script>
+</body>
+</html>
