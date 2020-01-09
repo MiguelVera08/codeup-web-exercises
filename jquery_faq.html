@@ -4,19 +4,59 @@
     <meta charset="UTF-8">
     <title>10 FAQS</title>
     <style>
-        dd {
+        dd, li {
             margin-top: 10px;
             margin-bottom: 10px;
         }
-        .invisible{
+
+        .invisible {
             visibility: hidden;
         }
+
         .highlight {
             background-color: #9bcf3a;
         }
+
+        .highlight-class {
+            background-color: #42f081;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        img {
+            /*border: 2px solid #eed;*/
+            /*border-top-color: #ccb;*/
+            /*border-bottom-color: #ffe;*/
+            /*background-size: cover;*/
+            /*max-height: 100%;*/
+            /*max-width: 100%;*/
+        }
+        .frame {
+            border: 10px solid Black;
+            height: auto;
+            background-size: cover;
+
+        }
+        .pic-button{
+            width: 100%;
+            height: 50px;
+            border: 2px solid red;
+        }
+
     </style>
 </head>
 <body>
+
+<div>
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>X</span>
+</div>
+
+<div class="register"></div>
+
 <h1>Yellowstone National Park Faqs</h1>
 
 <dl>
@@ -81,21 +121,164 @@
 
 <a href="#" id="toggle">Toggle On and Off</a>
 
+
+<!--Traversing Method Exercise-->
+<h3>Yosemite National Park</h3>
+<ul class="facts">
+    <li>
+        IT WAS HOME TO THE COUNTRY’S FIRST PARK GUARDIAN.
+    </li>
+    <li>
+        WHEN THE TIMING IS RIGHT, ONE OF THE PARK’S WATERFALLS GLOWS.
+    </li>
+    <li>
+        IT IS REVERED AS THE BIRTH PLACE OF ROCK CLIMBING FOR SPORT.
+    </li>
+    <li>
+        BUFFALO SOLDIERS WERE SOME OF THE PARK’S FIRST PROTECTORS.
+    </li>
+</ul>
+
+<h3>Glacier National Park</h3>
+<ul class="facts">
+    <li>
+        GLACIER IS A PART OF THE WORLD’S FIRST INTERNATIONAL PEACE PARK.
+    </li>
+    <li>
+        THE ARRAY OF WILDLIFE HAS HARDLY CHANGED SINCE THE LEWIS AND CLARK EXPEDITION.
+    </li>
+    <li>
+        IT’S THE “CROWN OF THE CONTINENT.”
+    </li>
+    <li>
+        MOUNTAIN GOATS ARE AN IMPORTANT PART OF GLACIER’S IDENTITY.
+    </li>
+</ul>
+
+<h3>Grand Canyon National Park</h3>
+<ul class="facts">
+    <li>
+        GRAND CANYON NATIONAL PARK IS BIGGER THAN THE ENTIRE STATE OF RHODE ISLAND.
+    </li>
+    <li>
+        THE HOPI TRIBE CONSIDERS THE GRAND CANYON A GATEWAY TO THE AFTERLIFE.
+    </li>
+    <li>
+        TEMPERATURES VARY GREATLY WITHIN THE CANYON.
+    </li>
+    <li>
+        THE CANYON IS FULL OF HIDDEN CAVES.
+    </li>
+</ul>
+
+
+<button id="button" class="li-button">Submit</button>
+
+<br>
+
+
+<div class="row">
+    <div>
+        <div class="frame"><img id="pic-1" src="img/smidge.jpeg" class="responsive" alt=""/></div>
+        <button id="button-left" class="pic-button">Swap</button>
+    </div>
+
+
+    <div>
+        <div class="frame"><img id="pic-2" src="img/blink.gif" class="responsive"  alt=""/></div>
+        <button id="button-middle" class="pic-button">Swap</button>
+    </div>
+
+    <div>
+        <div class="frame"><img id="pic-3" src="img/doge.jpg" class="responsive"  alt=""/></div>
+        <button id="button-right" class="pic-button">Swap</button>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
 <script>
     "use strict";
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#toggle').click(function (event) {
             event.preventDefault();
             $('dd').toggleClass('invisible')
         });
     });
 
-    $('dt').click(function() {
+    $('dt').click(function () {
         $(this).addClass('highlight')
     });
+
+    //Create a button that, when clicked, makes the last li in each ul have a yellow background.
+    $('#button').click(function () {
+        $("ul").each(function () {
+            $(this).children('li').last().addClass('highlight-class')
+        });
+    });
+
+    //When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+    $('h3').click(function () {
+        $(this).next('ul').children('li').css('font-weight', 'bold')
+    });
+
+    //When any list item is clicked, first li of the parent ul should have a font color of blue.
+    $('li').click(function () {
+        $(this).parents('ul').children('li').first().css('color', 'blue')
+    });
+
+    //Bonus for Traversing Methods
+    //The left frame swaps to the right and takes the image from the frame in the center.
+    $('#button-left').click(function(){
+        console.log('left button clicked');
+        var first = $('#pic-1').attr('src');
+        var swap = $('#pic-2').attr('src');
+        $('#pic-1').attr("src", swap);
+        $('#pic-2').attr('src', first);
+    });
+
+    //The center frame swaps randomly to either the left or right.
+    $('#button-middle').click(function(){
+       console.log('middle button clicked');
+       var random = Math.floor(Math.random() * 2) + 1;
+       if (random == 1){
+           var first = $('#pic-1').attr('src');
+           var swap = $('#pic-2').attr('src');
+           $('#pic-1').attr("src", swap);
+           $('#pic-2').attr('src', first);
+       }else{
+           var first = $('#pic-3').attr('src');
+           var swap = $('#pic-2').attr('src');
+           $('#pic-3').attr("src", swap);
+           $('#pic-2').attr('src', first);
+       }
+    });
+    //The right frame swaps to the left and takes the image from the frame in the center.
+    $('#button-right').click(function(){
+        console.log('right button clicked');
+        var first = $('#pic-3').attr('src');
+        var swap = $('#pic-2').attr('src');
+        $('#pic-3').attr("src", swap);
+        $('#pic-2').attr('src', first);
+    });
+    //jQuery Effects
+    // At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?" and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
+    $('span').click(function () {
+        $(this).parent("div").hide();
+
+    });
+
+    // The uls next to each h3 that contain facts about each park should start out hidden, and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+
+    $(".facts").hide();
+
+    $('h3').click(function () {
+        $(this).next('ul').slideToggle();
+    });
+    // After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+    $('.register').hide().html('<h2>Would You Like To Register for this site?</h2>').delay(8000).fadeIn();
+
 </script>
 </body>
 </html>
