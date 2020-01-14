@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Konami Code</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="contra">
+    <source src="sounds/contra_title.mp3" type="audio/mp3">
+</audio>
+
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).ready(function () {
+        var index = 0,
+            //       [up, up, dn, dn, lt, rt, lt, rt,  b,  a, enter]
+            konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+        $(document).keydown(function (e) {
+            $('span').removeClass('on');
+            if (e.keyCode == konami[index++]) {
+                $('#' + index).addClass('on');
+                if (index == konami.length) {
+                    // user has entered the full konami code
+                    alert("You have added 30 lives!");
+                    $('body').css({
+                        'background-image': 'url(img/contra.gif)',
+                        'background-size': 'cover',
+                    });
+                    $('audio#contra')[0].play();
+                    index = 0;
+                }
+            } else {
+                index = 0;
+            }
+        });
+    });
+</script>
+</body>
+</html>
