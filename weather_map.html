@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Weather Map CSS   -->
+    <link href="css/weather_map.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<audio id="woo">
+    <source src="sounds/woo.mp3" type="audio/mp3">
+</audio>
+
+<div class="container-main">
+    <div class="d-none d-sm-block">
+        <div class="jumbotron jumbotron-fluid" id="main-container">
+
+            <a class="navbar-brand" href="#">
+                <img src="img/ric.gif" width="100" height="100" class="d-inline-block align-top" alt="">
+            </a>
+
+            <div>
+                <h1 class="title text-center">Nature Boy Weather</h1>
+                <h2 class="start-location text-center">San Antonio</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container card-cont mt-2">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-group align-items-center mt-5 mb-3" id="forecast"></div>
+
+
+                <input type="text" class="form-control m-auto" id="userSearch" placeholder="Search">
+
+                <div class="mx-auto">
+                    <button id ="submit" type="button" class="btn btn-secondary my-3 mx-auto d-block">Submit</button>
+                </div>
+                <!-- The HTML element that serves as the Mapbox container -->
+                <div id='map'></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+
+    //Code For Mapbox api
+    mapboxgl.accessToken = mapbox;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: "mapbox://styles/mvera0889/ck4a480b811v31crwvoq38fsb",
+        zoom: 3,
+        center: [-98.4936, 29.4241]
+    });
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+
+    //Default Marker Placed on San Antonio, TX
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4936, 29.4241])
+        .addTo(map);
+
+
+    //Code Getting Weather info from darksky api for three day forcast
+    var weather = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSky + "/29.4241,-98.4936 ");
+
+    weather.done(function (data) {
+        console.log(data);
+
+        var forecast = "";
+
+
+
+        for (var i = 0; i < 3; i++) {
+
+            var imgSrc = 'icon/' + data.daily.data[i].icon + '.png';
+
+            var dateObject = new Date(data.daily.data[i].time * 1000);
+
+            //Turn Date object then slice to only get the date for that day
+            var day = String(dateObject).slice(0,10);
+
+            console.log(day);
+
+            forecast += "<div class=card>";
+            forecast += '<div class=card-body>';
+            forecast += '<h2 class=card-title>' + Math.round(data.daily.data[i].temperatureHigh) + "°" + "/" + Math.round(data.daily.data[i].temperatureLow) + "°" + '</h2>';
+            forecast += '<p class=card-text>'+ day + '</p>';
+            forecast += '<img src="'+ imgSrc + '" alt="" />';
+            forecast += '<p class=card-text>' + data.daily.data[i].summary + '</p>';
+            forecast += '<p class=card-text><strong>Humidity: </strong>' + Math.round((data.daily.data[i].humidity * 100)) + '</p>';
+            forecast += '<p class=card-text><strong>Wind: </strong>' + data.daily.data[i].windSpeed + '</p>';
+            forecast += '<p class=card-text><strong>Pressure: </strong>' + data.daily.data[i].pressure + '</p>';
+            forecast += "</div>";
+            forecast += "</div>";
+        }
+        $("#forecast").html(forecast);
+    });
+
+
+
+    //Function for button search
+    $('#submit').click(function () {
+
+        //Variable holding information from search form
+        var search = $(userSearch).val();
+
+
+
+        //Use geocode function to get coordinates based on a physical address then store
+        geocode(search, mapbox).then(function (result) {
+            var long = result[0].toString();
+            var lat = result[1].toString();
+
+            $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSky + "/" + lat + ", " + long)
+                .done(function (data) {
+                    console.log(data);
+
+                    var forecast = "";
+
+                    for (var i = 0; i < 3; i++) {
+
+                        var imgSrc = 'icon/' + data.daily.data[i].icon + '.png';
+
+                        var dateObject = new Date(data.daily.data[i].time * 1000);
+
+                        //Turn Date object then slice to only get the date for that day
+                        var day = String(dateObject).slice(0,10);
+
+                        forecast += "<div class=card>";
+                        forecast += '<div class=card-body>';
+                        forecast += '<h2 class=card-title>' + Math.round(data.daily.data[i].temperatureHigh) + "°" + "/" + Math.round(data.daily.data[i].temperatureLow) + "°" + '</h2>';
+                        forecast += '<p class=card-text>'+ day + '</p>';
+                        forecast += '<img src="'+ imgSrc + '" alt="" />';
+                        forecast += '<p class=card-text>' + data.daily.data[i].summary + '</p>';
+                        forecast += '<p class=card-text><strong>Humidity: </strong>' + Math.round((data.daily.data[i].humidity * 100)) + '</p>';
+                        forecast += '<p class=card-text><strong>Wind: </strong>' + data.daily.data[i].windSpeed + '</p>';
+                        forecast += '<p class=card-text><strong>Pressure: </strong>' + data.daily.data[i].pressure + '</p>';
+                        forecast += "</div>";
+                        forecast += "</div>";
+                    }
+                    $("#forecast").html(forecast);
+
+            });
+            map.flyTo({center:result,zoom:10});
+            $(".start-location").html(search.charAt(0).toUpperCase() + search.slice(1,search.length));
+            marker.setLngLat([long, lat]);
+            $('audio#woo')[0].play();
+        })
+
+    });
+
+
+
+
+    /////////////////////////////////////////////////////////////////////// draggable marker  ///////////////////////////////////////////////////////////////////////
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+
+        var weather = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSky + "/" + lngLat.lat + "," + lngLat.lng;
+        // // Pulling Weather
+        $.get(weather).done(function (data) {
+            console.log(data);
+
+            var forecast = "";
+
+            for (var i = 0; i < 3; i++) {
+
+                var imgSrc = 'icon/' + data.daily.data[i].icon + '.png';
+
+                var dateObject = new Date(data.daily.data[i].time * 1000);
+
+                //Turn Date object then slice to only get the date for that day
+                var day = String(dateObject).slice(0,10);
+
+                forecast += "<div class=card>";
+                forecast += '<div class=card-body>';
+                forecast += '<h2 class=card-title>' + Math.round(data.daily.data[i].temperatureHigh) + "°" + "/" + Math.round(data.daily.data[i].temperatureLow) + "°" + '</h2>';
+                forecast += '<p class=card-text>'+ day + '</p>';
+                forecast += '<img src="'+ imgSrc + '" alt="" />';
+                forecast += '<p class=card-text>' + data.daily.data[i].summary + '</p>';
+                forecast += '<p class=card-text><strong>Humidity: </strong>' + Math.round((data.daily.data[i].humidity * 100)) + '</p>';
+                forecast += '<p class=card-text><strong>Wind: </strong>' + data.daily.data[i].windSpeed + '</p>';
+                forecast += '<p class=card-text><strong>Pressure: </strong>' + data.daily.data[i].pressure + '</p>';
+                forecast += "</div>";
+                forecast += "</div>";
+            }
+            $("#forecast").html(forecast);
+        });
+
+        var mapCity = reverseGeocode(lngLat, mapbox);
+        console.log(Promise.resolve(mapCity));
+
+        mapCity.then(function(result) {
+            $('.start-location').html(result)
+        });
+    }
+
+    marker.on('dragend', onDragEnd);
+
+</script>
+
+
+</body>
+</html>
