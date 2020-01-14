@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Exercise</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+        /*#geocoder-container > div {*/
+        /*    min-width: 50%;*/
+        /*    margin-left: 25%;*/
+        /*}*/
+
+        .marker {
+            /*background-image: url('img/kura.png');*/
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+<h1>Austin TX, Favorite Restaurants</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = mapbox;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: "mapbox://styles/mvera0889/ck4a480b811v31crwvoq38fsb",
+        zoom: 10,
+        center: [-97.7431, 30.2672]
+    });
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    //Marker styling
+    var markerOptions = {
+        color: "red",
+        className: 'marker',
+    };
+
+    var restaurants = [
+         {
+           address: "1415 S Congress Ave, Austin, TX 78704",
+           image: 'img/homeslice.jpg',
+           popupHTML: "<h2>Home Slice Pizza</h2>" +
+               "<ul><li> Restaurant Type: Pizza, Sandwiches</li>" +
+               "<li>Favriote Dish: Pepperoni and Mushroom pizza</li>" +
+               "<li>Website:<a href='https://homeslicepizza.com/'> Home Slice </a></li>" +
+               "<li>Yelp: <a href=' https://www.yelp.com/biz/home-slice-pizza-austin'> Yelp Reviews </a></li></ul>"
+         },
+        {
+            address: "6929 Airport Blvd, Ste 125 Austin, TX 78752",
+            image: 'img/kura.png',
+            popupHTML: "<h2>Kura Revolving Sushi Bar</h2>" +
+                "<ul><li>Restaurant Type: Conveyor Belt Sushi</li>" +
+                "<li>Favriote Dish: Spicy Tuna Hand Roll</li>" +
+                "<li>Website:<a href='https://kurasushi.com/locations/austin-tx-airport-blvd/'> Kura </a></li>" +
+                "<li>Yelp: <a href='https://www.yelp.com/biz/kura-revolving-sushi-bar-austin-3'> Yelp Reviews </a></li></ul>"
+        },
+        {
+            address: "1624 Barton Springs Rd, Austin, TX 78704",
+            image: 'img/shady.jpg',
+            popupHTML: "<h2>Shady Grove</h2>" +
+                "<ul><li>Restaurant Type: American (Traditional), Tex-Mex, Bars</li>" +
+                "<li>Favriote Dish: Chicken Fried Steak</li>" +
+                "<li>Website:<a href='https://www.theshadygrove.com/'> Shady Grove</a></li>" +
+                "<li>Yelp: <a href='https://www.yelp.com/biz/shady-grove-austin-2'> Yelp Reviews </a></li></ul>"
+        }
+    ];
+
+
+    //function takes the restaurant array of objects and creates markers on their address location
+    function placeMarkerAndPopup(info, token, map) {
+        info.forEach(function(info) {
+            geocode(info.address, token).then(function (result) {
+                var popup = new mapboxgl.Popup()
+                    .setHTML(info.popupHTML);
+                var el = document.createElement('div');
+                    el.className = 'marker';
+                    el.style.backgroundImage = 'url("info.restaurants.image")';
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(result)
+                    .addTo(map)
+                    .setPopup(popup);
+                // marker();
+            });
+        })
+    }
+    placeMarkerAndPopup(restaurants, mapbox, map);
+
+    //Marker will placed on map based on address entered in search bar
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapbox,
+        marker: {
+            color: "orange"
+        },
+        mapboxgl: mapboxgl
+    });
+
+    map.addControl(geocoder);
+
+    // geocode("1415 S Congress Ave, Austin, TX 78704", mapbox).then(function (result) {
+    //     map.setCenter(result);
+    //     var restPopup = new mapboxgl.Popup()
+    //         .setHTML("<p>Home Slice Pizza</p>");
+    //
+    //     var marker = new mapboxgl.Marker(markerOptions)
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //         .setPopup(restPopup);
+    //     marker();
+    // });
+
+</script>
+</body>
+</html>
