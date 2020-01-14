@@ -1,0 +1,42 @@
+.card{
+    text-align: center;
+    border:  2px solid black;
+    background: #C72CFF;
+    background: -moz-linear-gradient(-45deg, #C72CFF 0%, #E4FF41 40%, #6A2581 100%);
+    background: -webkit-linear-gradient(-45deg, #C72CFF 0%, #E4FF41 40%, #6A2581 100%);
+    background: linear-gradient(135deg, #C72CFF 0%, #E4FF41 40%, #6A2581 100%);
+}
+#map{
+    width: 100%;
+    height: 500px;
+    -webkit-box-shadow: 5px 5px 15px 5px #8C1798;
+    box-shadow: 5px 5px 15px 5px #8C1798;
+}
+
+#main-container{
+    background-image:  url("../img/ric-flair.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+.jumbotron h1,h2 {
+    background-color: #ffffffab;
+}
+.card-cont{
+    background-color: #800080;
+    border:  2px solid black;
+}
+.container-main{
+    background: #FFBF00;
+    background: -moz-linear-gradient(top, #FFBF00 0%, #FFDF00 74%, #6B6F0F 100%);
+    background: -webkit-linear-gradient(top, #FFBF00 0%, #FFDF00 74%, #6B6F0F 100%);
+    background: linear-gradient(to bottom, #FFBF00 0%, #FFDF00 74%, #6B6F0F 100%);
+}
+.form-control{
+    width: 50%;
+}
+.btn{
+    width: 50%;
+    text-align: center;
+}
