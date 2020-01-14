@@ -138,6 +138,10 @@
         geocode(search, mapbox).then(function (result) {
             var long = result[0].toString();
             var lat = result[1].toString();
+            var coordinates = {
+                "lng": long,
+                "lat": lat,
+            };
 
             $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSky + "/" + lat + ", " + long)
                 .done(function (data) {
@@ -152,13 +156,13 @@
                         var dateObject = new Date(data.daily.data[i].time * 1000);
 
                         //Turn Date object then slice to only get the date for that day
-                        var day = String(dateObject).slice(0,10);
+                        var day = String(dateObject).slice(0, 10);
 
                         forecast += "<div class=card>";
                         forecast += '<div class=card-body>';
                         forecast += '<h2 class=card-title>' + Math.round(data.daily.data[i].temperatureHigh) + "°" + "/" + Math.round(data.daily.data[i].temperatureLow) + "°" + '</h2>';
-                        forecast += '<p class=card-text>'+ day + '</p>';
-                        forecast += '<img src="'+ imgSrc + '" alt="" />';
+                        forecast += '<p class=card-text>' + day + '</p>';
+                        forecast += '<img src="' + imgSrc + '" alt="" />';
                         forecast += '<p class=card-text>' + data.daily.data[i].summary + '</p>';
                         forecast += '<p class=card-text><strong>Humidity: </strong>' + Math.round((data.daily.data[i].humidity * 100)) + '</p>';
                         forecast += '<p class=card-text><strong>Wind: </strong>' + data.daily.data[i].windSpeed + '</p>';
@@ -168,13 +172,21 @@
                     }
                     $("#forecast").html(forecast);
 
-            });
-            map.flyTo({center:result,zoom:10});
-            $(".start-location").html(search.charAt(0).toUpperCase() + search.slice(1,search.length));
+                });
+            map.flyTo({center: result, zoom: 10});
+            // $(".start-location").html(search.charAt(0).toUpperCase() + search.slice(1,search.length));
             marker.setLngLat([long, lat]);
             $('audio#woo')[0].play();
-        })
 
+
+            reverseGeocode(coordinates, mapbox).then(function (data) {
+                var resultSplit = data.toString().split(', ');
+                var resultJoin = resultSplit[resultSplit.length - 3] + " " + resultSplit[resultSplit.length - 2];
+                $('.start-location').html(resultJoin + " " + 'Weather Forecast');
+                console.log(data);
+                console.log(resultSplit);
+            })
+        })
     });
 
 
