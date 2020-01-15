@@ -107,8 +107,8 @@
                     .setHTML(info.popupHTML);
                 var el = document.createElement('div');
                     el.className = 'marker';
-                    el.style.backgroundImage = 'url("info.restaurants.image")';
-                var marker = new mapboxgl.Marker()
+                    el.style.backgroundImage = 'url(' + info.image +')';
+                var marker = new mapboxgl.Marker(el)
                     .setLngLat(result)
                     .addTo(map)
                     .setPopup(popup);
