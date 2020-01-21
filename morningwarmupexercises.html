@@ -269,53 +269,65 @@
         //     $('body').css('background', CSS_COLOR_NAMES[randomIndex])
         // })
 
-        var hamsters = [
-            {
-                name: "Hamtaro",
-                heightInMM: 86,
-                fur: ['orange', 'white'],
-                gender: "male",
-                dateOfBirth: "August 6"
-            } , {
-                name: "Bijou",
-                heightInMM: 75,
-                fur: ['white'],
-                gender: "female",
-                dateOfBirth: "July 10"
-            } , {
-                name: "Oxnard",
-                heightInMM: 100,
-                fur: ['grey', 'white'],
-                gender: "male",
-                dateOfBirth: "May 3"
-            } , {
-                name: "Boss",
-                heightInMM: 120,
-                fur: ['brown', 'white'],
-                gender: "male",
-                dateOfBirth: "Spetember 21"
-            } , {
-                name: "Snoozer",
-                heightInMM: 85,
-                fur: ['brown', 'white', "pink"],
-                gender: "male",
-                dateOfBirth: "January 14"
+        // var hamsters = [
+        //     {
+        //         name: "Hamtaro",
+        //         heightInMM: 86,
+        //         fur: ['orange', 'white'],
+        //         gender: "male",
+        //         dateOfBirth: "August 6"
+        //     } , {
+        //         name: "Bijou",
+        //         heightInMM: 75,
+        //         fur: ['white'],
+        //         gender: "female",
+        //         dateOfBirth: "July 10"
+        //     } , {
+        //         name: "Oxnard",
+        //         heightInMM: 100,
+        //         fur: ['grey', 'white'],
+        //         gender: "male",
+        //         dateOfBirth: "May 3"
+        //     } , {
+        //         name: "Boss",
+        //         heightInMM: 120,
+        //         fur: ['brown', 'white'],
+        //         gender: "male",
+        //         dateOfBirth: "Spetember 21"
+        //     } , {
+        //         name: "Snoozer",
+        //         heightInMM: 85,
+        //         fur: ['brown', 'white', "pink"],
+        //         gender: "male",
+        //         dateOfBirth: "January 14"
+        //     }
+        // ];
+        //
+        //
+        // function hamsterHeight(hamsterArray) {
+        //     var total = 0;
+        //
+        //     hamsterArray.forEach(function (hamster) {
+        //
+        //         total += hamster.heightInMM
+        //
+        //     });
+        //     return total / hamsterArray.length;
+        // }
+        //
+        // console.log("The average height of the hamsters is : " + hamsterHeight(hamsters))
+        function isAnagram(wordOne,wordTwo) {
+            if(wordOne.length === wordTwo.length){
+                if(wordOne.split("").sort().join("").toLowerCase().includes(wordTwo.split("").sort().join("").toLowerCase())){
+                    return true;
+                }
+            }else{
+                return false
             }
-        ];
-
-
-        function hamsterHeight(hamsterArray) {
-            var total = 0;
-
-            hamsterArray.forEach(function (hamster) {
-
-                total += hamster.heightInMM
-
-            });
-            return total / hamsterArray.length;
         }
 
-        console.log("The average height of the hamsters is : " + hamsterHeight(hamsters))
+        console.log(isAnagram('listen','silent'));
+        console.log(isAnagram('car', 'fart'))
 
     </script>
 </body>
