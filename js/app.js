@@ -1,8 +1,8 @@
 'use strict';
 
-const math = require('./math.js');
+import {add,subtract,multiply,divide} from './math.js';
 
-console.log(math.add(4,5));
-console.log(math.subtract(10,34));
-console.log(math.multiply(8,4));
-console.log(math.divide(20,5));
+console.log(add(4,5));
+console.log(subtract(10,34));
+console.log(multiply(8,4));
+console.log(divide(20,5));
