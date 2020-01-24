@@ -9,326 +9,428 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
-    <script>
-        // function helloWorld() {
-        //     return "Hello World!"
-        // }
-        // console.log(helloWorld());
-        // function helloName(name) {
-        //     return "Hello " + name + "!";
-        //
-        // }
-        // console.log(helloName("miguel"));
+<script>
+    // function helloWorld() {
+    //     return "Hello World!"
+    // }
+    // console.log(helloWorld());
+    // function helloName(name) {
+    //     return "Hello " + name + "!";
+    //
+    // }
+    // console.log(helloName("miguel"));
 
-        // function add(num1,num2) {
-        //     return num1 + num2
-        // }
-        // console.log(add(57,45));
-        // function addFour(w,x,y,z) {
-        //
-        //     return w + x + y + z;
-        // }
-        // console.log(addFour(1,2,3,4));
-        // console.log(addFour(25,50,75,100));
+    // function add(num1,num2) {
+    //     return num1 + num2
+    // }
+    // console.log(add(57,45));
+    // function addFour(w,x,y,z) {
+    //
+    //     return w + x + y + z;
+    // }
+    // console.log(addFour(1,2,3,4));
+    // console.log(addFour(25,50,75,100));
 
-        // function calculateRectangleArea(length,width) {
-        //     var area = length * width;
-        //
-        //     return area
-        // }
-        // console.log(calculateRectangleArea(45,65));
+    // function calculateRectangleArea(length,width) {
+    //     var area = length * width;
+    //
+    //     return area
+    // }
+    // console.log(calculateRectangleArea(45,65));
 
-        // function firstItem(array){
-        //
-        //     return array.shift();
-        // }
-        // console.log(firstItem(["dog","cat","bird","fish"]))
-        // console.log(firstItem([1,7,20,45]))
+    // function firstItem(array){
+    //
+    //     return array.shift();
+    // }
+    // console.log(firstItem(["dog","cat","bird","fish"]))
+    // console.log(firstItem([1,7,20,45]))
 
-        // function arrayLength(array) {
-        //
-        //     return array.length;
-        // }
-        //
-        // console.log(arrayLength([2,8,4,9,5,7,3]))
-        
-        // function lastItem(array) {
-        //
-        //     return array[array.length - 1];
-        //
-        // }
-        // console.log(lastItem([2,8,4,9,5,7,3]))
-        // console.log(lastItem(["apple", "mango", "kiwi", "pineapple", "coconut"]))
-        
-        // var nthItem = function (inputArray, n) {
-        //     return inputArray[n-1];
-        //
-        // }
-        // console.log(nthItem(["vivian","daniel","justin","sophie"], 2));
+    // function arrayLength(array) {
+    //
+    //     return array.length;
+    // }
+    //
+    // console.log(arrayLength([2,8,4,9,5,7,3]))
 
-        // function getType(input) {
-        //     return typeof input;
-        // }
+    // function lastItem(array) {
+    //
+    //     return array[array.length - 1];
+    //
+    // }
+    // console.log(lastItem([2,8,4,9,5,7,3]))
+    // console.log(lastItem(["apple", "mango", "kiwi", "pineapple", "coconut"]))
 
-        // var getType = function (input) {
-        //
-        //     return typeof input;
-        // }
-        //
-        // console.log(getType("dan"));
-        // console.log(getType(7));
-        // console.log(getType(true));
+    // var nthItem = function (inputArray, n) {
+    //     return inputArray[n-1];
+    //
+    // }
+    // console.log(nthItem(["vivian","daniel","justin","sophie"], 2));
 
-        // function put2(array) {
-        //
-        //    array.push(2);
-        //    return array;
-        //
-        // }
-        //
-        // console.log(put2(["dog","cat","bird","fish"]))
-        // console.log(put2([1,7,20,45]))
-        // function highTen(num) {
-        //     return num > 10;
-        // }
-        //
-        // console.log(highTen(11))
-        // console.log(highTen(8))
-        // function youMayEnter(num) {
-        //
-        //     if (num >= 13) {
-        //         return "You may enter!";
-        //     } else {
-        //         return "Sorry, you need a parent or a guardian to enter.";
-        //     }
-        //
-        // }
-        // console.log(youMayEnter(14));
-        // console.log(youMayEnter(3));
-        // console.log(youMayEnter(-13));
-        // console.log(youMayEnter(12));
+    // function getType(input) {
+    //     return typeof input;
+    // }
 
-        // function seeYouLater(name) {
-        //
-        //     // if (name === "alligator") {
-        //     //     return "See you later alligator!";
-        //     // }else if ( name === "crocodile") {
-        //     //     return "After a while crocodile!";
-        //     // }else {
-        //     //     return "So long!";
-        //     // }
-        //
-        //     switch(name) {
-        //         case "alligator":
-        //             return "See you later alligator!";
-        //
-        //         case "crocodile":
-        //             return "After a while crocodile!";
-        //
-        //         default:
-        //             return "So long!";
-        //     }
-        // }
-        // console.log(seeYouLater("alligator"))
-        // console.log(seeYouLater("crocodile"))
-        // console.log(seeYouLater("bird"))
+    // var getType = function (input) {
+    //
+    //     return typeof input;
+    // }
+    //
+    // console.log(getType("dan"));
+    // console.log(getType(7));
+    // console.log(getType(true));
 
-        // function functionA(callbackFunction){
-        //     callbackFunction();
-        // }
-        // functionA(function() {
-        //     alert("It works!");
-        //
-        // });
-        // function contains(array, input){
-        //
-        //     // return array.includes(input);
-        //
-        //     for (var i = 0;i<array.length;i++){
-        //         if(array[i] === input) return true;
-        //     }
-        //     return false;
-        // }
-        //
-        //
-        //
-        // console.log(contains([1,2,3,4,5], 4));
-        // console.log(contains([1,2,3,4,5], 10));
-        // console.log(contains(["Banana", "Orange", "Apple", "Mango"], "Mango"));
+    // function put2(array) {
+    //
+    //    array.push(2);
+    //    return array;
+    //
+    // }
+    //
+    // console.log(put2(["dog","cat","bird","fish"]))
+    // console.log(put2([1,7,20,45]))
+    // function highTen(num) {
+    //     return num > 10;
+    // }
+    //
+    // console.log(highTen(11))
+    // console.log(highTen(8))
+    // function youMayEnter(num) {
+    //
+    //     if (num >= 13) {
+    //         return "You may enter!";
+    //     } else {
+    //         return "Sorry, you need a parent or a guardian to enter.";
+    //     }
+    //
+    // }
+    // console.log(youMayEnter(14));
+    // console.log(youMayEnter(3));
+    // console.log(youMayEnter(-13));
+    // console.log(youMayEnter(12));
 
-        // Loop through the following  array of Reindeer objects and return an array of Reindeer objects that are "gold" reindeer
+    // function seeYouLater(name) {
+    //
+    //     // if (name === "alligator") {
+    //     //     return "See you later alligator!";
+    //     // }else if ( name === "crocodile") {
+    //     //     return "After a while crocodile!";
+    //     // }else {
+    //     //     return "So long!";
+    //     // }
+    //
+    //     switch(name) {
+    //         case "alligator":
+    //             return "See you later alligator!";
+    //
+    //         case "crocodile":
+    //             return "After a while crocodile!";
+    //
+    //         default:
+    //             return "So long!";
+    //     }
+    // }
+    // console.log(seeYouLater("alligator"))
+    // console.log(seeYouLater("crocodile"))
+    // console.log(seeYouLater("bird"))
 
-        // var reindeerList = [
-        //     {
-        //         name: "Dot",
-        //         age: 5,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Dasher",
-        //         age: 8,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Patch",
-        //         age: 2,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Rocket",
-        //         age: 6,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Dancer",
-        //         age: 9,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Prancer",
-        //         age: 5,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Groot",
-        //         age: 9,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Vixen",
-        //         age: 9,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Comet",
-        //         age: 11,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Archie",
-        //         age: 3,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Cupid",
-        //         age: 13,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Donder",
-        //         age: 16,
-        //         isGold: true
-        //     },
-        //     {
-        //         name: "Boots",
-        //         age: 16,
-        //         isGold: false
-        //     },
-        //     {
-        //         name: "Blizten",
-        //         age: 16,
-        //         isGold: true
-        //     }
-        // ]
-        //
-        // function reindeer(reindeerArray){
-        //     var bucket = [];
-        //
-        //     for(var i = 0; i<reindeerArray.length; i++){
-        //         if(reindeerList[i].isGold === true){
-        //             bucket.push(reindeerArray[i]);
-        //         }
-        //     }
-        //     return bucket;
-        // }
-        // console.log(reindeer(reindeerList));
+    // function functionA(callbackFunction){
+    //     callbackFunction();
+    // }
+    // functionA(function() {
+    //     alert("It works!");
+    //
+    // });
+    // function contains(array, input){
+    //
+    //     // return array.includes(input);
+    //
+    //     for (var i = 0;i<array.length;i++){
+    //         if(array[i] === input) return true;
+    //     }
+    //     return false;
+    // }
+    //
+    //
+    //
+    // console.log(contains([1,2,3,4,5], 4));
+    // console.log(contains([1,2,3,4,5], 10));
+    // console.log(contains(["Banana", "Orange", "Apple", "Mango"], "Mango"));
 
-        // function fizzBuzz(num){
-        //
-        //     for (var i = 1; i<=num;i++) {
-        //         if(i % 15 === 0){
-        //             console.log("FizzBuzz")
-        //         }else if(i % 3 === 0){
-        //             console.log("Fizz")
-        //         }else if(i % 5 === 0){
-        //             console.log("Buzz")
-        //         }else{
-        //             console.log(i);
-        //         }
-        //     }
-        // }
-        // fizzBuzz(100);
+    // Loop through the following  array of Reindeer objects and return an array of Reindeer objects that are "gold" reindeer
 
-        // var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
-        //
-        //
-        // $('.color').click(function () {
-        //
-        //     var randomIndex = Math.floor(Math.random() * CSS_COLOR_NAMES.length);
-        //
-        //     $('body').css('background', CSS_COLOR_NAMES[randomIndex])
-        // })
+    // var reindeerList = [
+    //     {
+    //         name: "Dot",
+    //         age: 5,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Dasher",
+    //         age: 8,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Patch",
+    //         age: 2,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Rocket",
+    //         age: 6,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Dancer",
+    //         age: 9,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Prancer",
+    //         age: 5,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Groot",
+    //         age: 9,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Vixen",
+    //         age: 9,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Comet",
+    //         age: 11,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Archie",
+    //         age: 3,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Cupid",
+    //         age: 13,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Donder",
+    //         age: 16,
+    //         isGold: true
+    //     },
+    //     {
+    //         name: "Boots",
+    //         age: 16,
+    //         isGold: false
+    //     },
+    //     {
+    //         name: "Blizten",
+    //         age: 16,
+    //         isGold: true
+    //     }
+    // ]
+    //
+    // function reindeer(reindeerArray){
+    //     var bucket = [];
+    //
+    //     for(var i = 0; i<reindeerArray.length; i++){
+    //         if(reindeerList[i].isGold === true){
+    //             bucket.push(reindeerArray[i]);
+    //         }
+    //     }
+    //     return bucket;
+    // }
+    // console.log(reindeer(reindeerList));
 
-        // var hamsters = [
-        //     {
-        //         name: "Hamtaro",
-        //         heightInMM: 86,
-        //         fur: ['orange', 'white'],
-        //         gender: "male",
-        //         dateOfBirth: "August 6"
-        //     } , {
-        //         name: "Bijou",
-        //         heightInMM: 75,
-        //         fur: ['white'],
-        //         gender: "female",
-        //         dateOfBirth: "July 10"
-        //     } , {
-        //         name: "Oxnard",
-        //         heightInMM: 100,
-        //         fur: ['grey', 'white'],
-        //         gender: "male",
-        //         dateOfBirth: "May 3"
-        //     } , {
-        //         name: "Boss",
-        //         heightInMM: 120,
-        //         fur: ['brown', 'white'],
-        //         gender: "male",
-        //         dateOfBirth: "Spetember 21"
-        //     } , {
-        //         name: "Snoozer",
-        //         heightInMM: 85,
-        //         fur: ['brown', 'white', "pink"],
-        //         gender: "male",
-        //         dateOfBirth: "January 14"
-        //     }
-        // ];
-        //
-        //
-        // function hamsterHeight(hamsterArray) {
-        //     var total = 0;
-        //
-        //     hamsterArray.forEach(function (hamster) {
-        //
-        //         total += hamster.heightInMM
-        //
-        //     });
-        //     return total / hamsterArray.length;
-        // }
-        //
-        // console.log("The average height of the hamsters is : " + hamsterHeight(hamsters))
-        function isAnagram(wordOne,wordTwo) {
-            if(wordOne.length === wordTwo.length){
-                if(wordOne.split("").sort().join("").toLowerCase().includes(wordTwo.split("").sort().join("").toLowerCase())){
-                    return true;
-                }
+    // function fizzBuzz(num){
+    //
+    //     for (var i = 1; i<=num;i++) {
+    //         if(i % 15 === 0){
+    //             console.log("FizzBuzz")
+    //         }else if(i % 3 === 0){
+    //             console.log("Fizz")
+    //         }else if(i % 5 === 0){
+    //             console.log("Buzz")
+    //         }else{
+    //             console.log(i);
+    //         }
+    //     }
+    // }
+    // fizzBuzz(100);
+
+    // var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
+    //
+    //
+    // $('.color').click(function () {
+    //
+    //     var randomIndex = Math.floor(Math.random() * CSS_COLOR_NAMES.length);
+    //
+    //     $('body').css('background', CSS_COLOR_NAMES[randomIndex])
+    // })
+
+    // var hamsters = [
+    //     {
+    //         name: "Hamtaro",
+    //         heightInMM: 86,
+    //         fur: ['orange', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "August 6"
+    //     } , {
+    //         name: "Bijou",
+    //         heightInMM: 75,
+    //         fur: ['white'],
+    //         gender: "female",
+    //         dateOfBirth: "July 10"
+    //     } , {
+    //         name: "Oxnard",
+    //         heightInMM: 100,
+    //         fur: ['grey', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "May 3"
+    //     } , {
+    //         name: "Boss",
+    //         heightInMM: 120,
+    //         fur: ['brown', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "Spetember 21"
+    //     } , {
+    //         name: "Snoozer",
+    //         heightInMM: 85,
+    //         fur: ['brown', 'white', "pink"],
+    //         gender: "male",
+    //         dateOfBirth: "January 14"
+    //     }
+    // ];
+    //
+    //
+    // function hamsterHeight(hamsterArray) {
+    //     var total = 0;
+    //
+    //     hamsterArray.forEach(function (hamster) {
+    //
+    //         total += hamster.heightInMM
+    //
+    //     });
+    //     return total / hamsterArray.length;
+    // }
+    //
+    // console.log("The average height of the hamsters is : " + hamsterHeight(hamsters))
+    // function isAnagram(wordOne,wordTwo) {
+    //     if(wordOne.length === wordTwo.length){
+    //         if(wordOne.split("").sort().join("").toLowerCase().includes(wordTwo.split("").sort().join("").toLowerCase())){
+    //             return true;
+    //         }
+    //     }else{
+    //         return false
+    //     }
+    // }
+    //
+    // console.log(isAnagram('listen','silent'));
+    // console.log(isAnagram('car', 'fart'))
+
+
+    let movies = [
+        {
+            "title": "John Wick",
+            "rating": "5",
+            "id": 1,
+            "genre": "action"
+        },
+        {
+            "title": "Star Wars: A New Hope",
+            "rating": "5",
+            "id": 2,
+            "genre": "science fiction"
+        },
+        {
+            "title": "IT",
+            "rating": "4",
+            "id": 3,
+            "genre": "horror"
+        },
+        {
+            "title": "The Notebook",
+            "rating": "2",
+            "id": 4,
+            "genre": "romance"
+        },
+        {
+            "title": "Old School",
+            "rating": "4",
+            "id": 5,
+            "genre": "comedy"
+        },
+        {
+            "title": "Grown Ups",
+            "rating": "2",
+            "id": 6,
+            "genre": "comedy"
+        },
+        {
+            "title": "The Hobbit: An Unexpected Journey",
+            "rating": "1",
+            "id": 7,
+            "genre": "fantasy"
+        },
+        {
+            "title": "Toy Story",
+            "rating": "5",
+            "id": 8,
+            "genre": "animation"
+        },
+        {
+            "title": "Princess Mononoke",
+            "rating": "5",
+            "id": 9,
+            "genre": "anime"
+        },
+        {
+            "title": "Howl's Moving Castle",
+            "rating": "5",
+            "id": 10,
+            "genre": "anime"
+        },
+        {
+            "title": "The Magnificent Seven",
+            "rating": "3",
+            "id": 11,
+            "genre": "western"
+        },
+        {
+            "title": "Catwoman",
+            "rating": "1",
+            "id": 12,
+            "genre": "action"
+        },
+        {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "rating": "4",
+            "id": 13,
+            "genre": "fantasy"
+        },
+        {
+            "title": "Aladdin",
+            "rating": "1",
+            "id": 14,
+            "genre": "live-action"
+        }
+    ];
+    const rateMovie = movies => {
+
+        for(let movie of movies){
+            if(movie.rating === '5'){
+                console.log(`${movie.title} is fantastic!`)
+            }else if(movie.rating === '1'){
+                console.log(`${movie.title} is terrible!`)
             }else{
-                return false
+                console.log(movie.title)
             }
         }
+    };
 
-        console.log(isAnagram('listen','silent'));
-        console.log(isAnagram('car', 'fart'))
+    rateMovie(movies);
 
-    </script>
+</script>
 </body>
 </html>
